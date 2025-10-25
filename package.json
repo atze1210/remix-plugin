@@ -70,7 +70,7 @@
     "@angular/animations": "^10.1.0",
     "@angular/cdk": "^10.2.6",
     "@angular/common": "^10.1.0",
-    "@angular/compiler": "^10.1.0",
+    "@angular/compiler": "^10.2.5",
     "@angular/core": "^10.1.0",
     "@angular/forms": "^10.1.0",
     "@angular/material": "^10.2.6",
