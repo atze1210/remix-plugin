@@ -67,23 +67,6 @@
     "plugin-webworker": {
       "tags": []
     },
-    "examples": {
-      "tags": []
-    },
-    "example-engine-web": {
-      "tags": []
-    },
-    "example/engine-web-e2e": {
-      "tags": [],
-      "implicitDependencies": ["example-engine-web"]
-    },
-    "example-plugin-webview": {
-      "tags": []
-    },
-    "example/plugin-webview-e2e": {
-      "tags": [],
-      "implicitDependencies": ["example-plugin-webview"]
-    },
     "plugin-theia": {
       "tags": []
     },

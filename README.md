@@ -77,6 +77,17 @@ npm run build
 ## Build a specific project
 ```
 npx nx build ${projectName} --with-deps
+
+## Angular Removal (Dec 2025)
+
+This repository no longer depends on Angular. We removed Angular example apps, Angular-related dependencies, and the `ngcc` postinstall step.
+
+- Removed: all `@angular/*` packages and `@nrwl/angular` usage
+- Removed: Angular example projects under `examples/example/*`
+- Removed: `ngcc` (Angular Compatibility Compiler) postinstall; it was used to convert View Engine packages to Ivy and is no longer needed
+- CI updated: CircleCI now uses `cimg/node:20.19.0-browsers` to align with local Node
+
+If you need the old Angular examples, refer to the repository history prior to the `chore/yarn-classic` branch.
 ```
 
 **Example for engine-vscode :**
