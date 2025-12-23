@@ -88,6 +88,7 @@ export class Plugin<T extends Api = any, App extends ApiMap = any> implements Pl
     const next = this.queue.find((value) => {
       return value.canceled === false && value.timedout === false && value.finished === false
     })
+    ;(this as any).emit('queue', this.queue)
     if (next) next.run()
   }
 
@@ -99,6 +100,7 @@ export class Plugin<T extends Api = any, App extends ApiMap = any> implements Pl
       queue['callMethod'] = async (method: string, args: any[]) => this.callPluginMethod(method, args)
       queue['letContinue'] = () => this.letContinue()
       this.queue.push(queue)
+      ;(this as any).emit('queue', this.queue)
       if (this.queue.length === 1)
         this.queue[0].run();
     }
@@ -107,7 +109,10 @@ export class Plugin<T extends Api = any, App extends ApiMap = any> implements Pl
 
   protected cancelRequests(request: PluginRequest, method: Profile<T>['methods'][number]) {
     for (const queue of this.queue) {
-      if (queue.request.from == request.from && (method ? queue.method == method : true)) queue.cancel()
+      if (queue.request.from == request.from && (method ? queue.method == method : true)) {
+        queue.cancel()
+        ;(this as any).emit('queue', queue.request)
+      }
     }
   }
 

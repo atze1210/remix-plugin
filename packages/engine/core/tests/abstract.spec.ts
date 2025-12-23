@@ -43,6 +43,8 @@ class MockPlugin extends Plugin {
   })
   onActivation = jest.fn()
   onDeactivation = jest.fn()
+  // Override emit to prevent "not registered in engine" error during tests
+  emit = jest.fn()
 }
 
 
