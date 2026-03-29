@@ -3,5 +3,5 @@ import { LibraryProfile } from '@remix-project/plugin-utils'
 
 export const dGitProfile: LibraryProfile<IDgitSystem> = {
   name: 'dGitProvider',
-  methods: ['clone', 'addremote', 'delremote', 'remotes', 'init', 'status', 'log', 'commit', 'add', 'reset', 'rm', 'lsfiles', 'readblob', 'resolveref', 'branch', 'branches','checkout','currentbranch', 'zip', 'push', 'pull', 'setIpfsConfig','getItem','setItem', 'localStorageUsed']
+  methods: ['clone', 'addremote', 'delremote', 'remotes', 'init', 'status', 'log', 'commit', 'add', 'reset', 'rm', 'lsfiles', 'readblob', 'resolveref', 'branch', 'branches','checkout','currentbranch', 'zip', 'push', 'pull', 'setIpfsConfig','getItem','setItem', 'localStorageUsed', 'config']
 }
