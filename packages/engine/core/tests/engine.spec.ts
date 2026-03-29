@@ -144,6 +144,21 @@ describe('Manager', () => {
     expect(onDeactivation).toBeCalledTimes(1)
   })
 
+  test('Batch activation rejects with errors when some fail', async () => {
+    await manager.activatePlugin('manager')
+    ;(manager as any).canActivatePlugin = jest.fn(async (from: any, to: any) => to.name !== 'fileManager')
+    let caughtErrors: any
+    try {
+      await manager.activatePlugin(['solidity', 'fileManager'])
+    } catch (errors) {
+      caughtErrors = errors
+    }
+    expect(caughtErrors).toBeDefined()
+    expect(Array.isArray(caughtErrors)).toBeTruthy()
+    expect(caughtErrors.length).toBeGreaterThan(0)
+    expect(caughtErrors[0]).toBeInstanceOf(Error)
+  })
+
 })
 
 
