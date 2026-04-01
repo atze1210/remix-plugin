@@ -29,5 +29,6 @@ export interface IDgitSystem {
         delremote(cmd: any): void
         clone(cmd: any): void
         localStorageUsed(): any
+        config(cmd: any): string | void
     };
 }
