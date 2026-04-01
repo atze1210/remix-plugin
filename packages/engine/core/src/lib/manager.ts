@@ -35,7 +35,7 @@ function catchAllPromises(promises: Promise<any>[]) {
       if (err) rejected.push(err)
       if (value) resolved.push(value)
       if (++ended === promises.length) {
-        rejected.length ? rej(resolved) : res(rejected);
+        rejected.length ? rej(rejected) : res(resolved);
       }
     }
     for (const promise of promises) {
